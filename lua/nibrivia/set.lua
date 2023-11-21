@@ -30,12 +30,6 @@ vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
 
-vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
-    callback = vim.lsp.buf.document_highlight
-})
-vim.api.nvim_create_autocmd({"CursorMoved"}, {
-    callback = vim.lsp.buf.clear_references
-})
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('highlight_yank', {}),

@@ -9,6 +9,7 @@ lsp_zero.on_attach(function(client, bufnr)
       vim.lsp.buf.format({async = false, timeout_ms = 5000})
   end, ops)
 
+
 end)
 
 require('mason').setup({})
@@ -22,3 +23,13 @@ require('mason-lspconfig').setup({
   },
 })
 
+lsp_zero.on_attach(function(client, bufnr)
+    if client.server_capabilities.documentHighlightProvider then
+        vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+            callback = vim.lsp.buf.document_highlight
+        })
+        vim.api.nvim_create_autocmd({"CursorMoved"}, {
+            callback = vim.lsp.buf.clear_references
+        })
+    end
+end)
