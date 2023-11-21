@@ -6,11 +6,14 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+vim.opt.cursorline = true
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
+vim.highlight.on_yank()
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -26,3 +29,19 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
+
+vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+    callback = vim.lsp.buf.document_highlight
+})
+vim.api.nvim_create_autocmd({"CursorMoved"}, {
+    callback = vim.lsp.buf.clear_references
+})
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('highlight_yank', {}),
+  desc = 'Hightlight selection on yank',
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 500 }
+  end,
+})
