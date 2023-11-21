@@ -11,7 +11,7 @@ vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition)
 vim.keymap.set("n", "<leader>u", vim.lsp.buf.references)
 vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>i", vim.lsp.buf.format)
-vim.keymap.set("n", "<leader>c", "gcc")
+vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
 
 vim.keymap.set("n", "<leader>l", function ()
     if vim.opt.background._value == "light" then
