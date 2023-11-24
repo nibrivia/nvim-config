@@ -5,6 +5,10 @@ vim.keymap.set("n", "<leader>w", ":wa<CR>")
 vim.keymap.set("n", "<leader>q", ":q<CR>")
 vim.keymap.set("n", "<leader>Q", ":wqa<CR>")
 
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 vim.keymap.set("n", "Y", "yy")
 
 vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition)
@@ -19,6 +23,10 @@ vim.keymap.set("n", "<leader>l", function ()
     else
         vim.opt.background="light"
     end
+end)
+
+vim.keymap.set("n", "<leader><CR>",  function ()
+    vim.fn.system({'terminator'})
 end)
 
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
