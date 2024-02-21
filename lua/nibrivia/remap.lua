@@ -26,7 +26,7 @@ vim.keymap.set("n", "<leader>l", function ()
 end)
 
 vim.keymap.set("n", "<leader><CR>",  function ()
-    vim.fn.system({'terminator'})
+    vim.fn.system({'st'})
 end)
 
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
