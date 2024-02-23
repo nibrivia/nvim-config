@@ -1,9 +1,9 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("n", "<leader>w", ":wa<CR>")
 vim.keymap.set("n", "<leader>q", ":q<CR>")
 vim.keymap.set("n", "<leader>Q", ":wqa<CR>")
+vim.keymap.set("n", "<leader><Esc>", ":wqa<CR>")
 
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -26,7 +26,7 @@ vim.keymap.set("n", "<leader>l", function ()
 end)
 
 vim.keymap.set("n", "<leader><CR>",  function ()
-    vim.fn.system({'st'})
+    os.execute('bash -c "st &"')
 end)
 
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
