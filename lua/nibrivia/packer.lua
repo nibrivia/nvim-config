@@ -49,7 +49,14 @@ return require('packer').startup(function(use)
     use({
         "Pocco81/auto-save.nvim",
         config = function()
-            require("auto-save").setup {}
+            require("auto-save").setup {
+                condition = function(buf)
+                    if vim.bo[buf].buftype ~= "" then
+                        return false
+                    end
+                    return true
+                end
+            }
         end,
     })
 
