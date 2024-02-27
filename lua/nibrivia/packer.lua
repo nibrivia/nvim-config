@@ -25,6 +25,9 @@ return require('packer').startup(function(use)
         config = function() require 'nvim-rooter'.setup() end
     }
 
+    use('nvim-lua/plenary.nvim')
+    use({ 'ThePrimeagen/harpoon', branch = "harpoon2", requires = { { "nvim-lua/plenary.nvim" } } })
+
     use('mbbill/undotree')
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -50,5 +53,5 @@ return require('packer').startup(function(use)
         end,
     })
 
-    use({'airblade/vim-gitgutter'})
+    use({ 'airblade/vim-gitgutter' })
 end)
