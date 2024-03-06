@@ -61,4 +61,5 @@ return require('packer').startup(function(use)
     })
 
     use({ 'airblade/vim-gitgutter' })
+    use({ 'knsh14/vim-github-link' })
 end)
